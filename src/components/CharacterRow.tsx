@@ -31,7 +31,7 @@ export function CharacterRow({ character, onLoadingChange }: CharacterRowProps) 
 
   useEffect(() => {
     getCharacterMovies();
-  }, []);
+  }, [character.films]);
 
   return (
     <div className="grid grid-cols-4 gap-4 p-4 border-t border-gray-200 hover:bg-gray-100">
