@@ -2,7 +2,7 @@ import { Character } from "./Character";
 
 export interface CharacterAPIResponse {
   count: number;
-  next: string;
-  previous: string;
+  next: string | null;
+  previous: string | null;
   results: Character[];
 }
