@@ -1,4 +1,5 @@
 import { Character } from "@/types/Character";
+import { Movie } from "@/types/Movie";
 import { fetchMovie } from "@/services/api";
 import { formatHeight } from "@/utils/formatHeight";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -10,7 +11,7 @@ interface CharacterRowProps {
 }
 
 export function CharacterRow({ character, onLoadingChange }: CharacterRowProps) {
-  const [movies, setMovies] = useState<string[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
 
   async function getCharacterMovies() {
@@ -40,7 +41,7 @@ export function CharacterRow({ character, onLoadingChange }: CharacterRowProps) 
       <p>{character.starships.length}</p>
       {loading ? (
         <Skeleton/>
-      ) : <p className="truncate">{movies.join(', ')}</p> }
+      ) : <p className="truncate">{movies.map(movie => movie.title).join(', ')}</p> }
     </div>
   );
 }
