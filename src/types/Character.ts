@@ -1,6 +1,6 @@
-export interface Character {
+export type Character = {
   name: string;
   height: number;
-  spaceships: [string];
-  movies: [string];
-}
+  spaceships: string[];
+  movies: string[];
+};    
