@@ -1,10 +1,10 @@
+import { Movie } from '@/types/Movie';
 import { CharacterAPIResponse } from '@/types/CharacterAPIResponse';
-
-const BASE_URL = 'https://swapi.dev/api';
+import { API_CONFIG } from '@/config/api.config';
 
 async function fetchCharacters(page: number = 1): Promise<CharacterAPIResponse> {
   try {
-    const response = await fetch(`${BASE_URL}/people/?page=${page}`);
+    const response = await fetch(`${API_CONFIG.baseURL}/people/?page=${page}`);
     if (!response.ok) {
       throw new Error('Failed to fetch characters');
     }
@@ -15,14 +15,13 @@ async function fetchCharacters(page: number = 1): Promise<CharacterAPIResponse> 
   }
 }
 
-async function fetchMovie(url: string): Promise<string> {
+async function fetchMovie(url: string): Promise<Movie> {
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error('Failed to fetch movie');
     }
-    const data = await response.json();
-    return data.title;
+    return response.json();
   } catch(error) {
     console.error('Error fetching movie:', error);
     throw error;
