@@ -6,15 +6,17 @@ import { useEffect, useState } from "react";
 
 interface CharacterRowProps {
   character: Character;
+  onLoadingChange: (isLoading: boolean) => void;
 }
 
-export function CharacterRow({ character }: CharacterRowProps) {
+export function CharacterRow({ character, onLoadingChange }: CharacterRowProps) {
   const [movies, setMovies] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
   async function getCharacterMovies() {
     try {
       setLoading(true);
+      onLoadingChange(true);
       const movies = await Promise.all(
         character.films.map(url => fetchMovie(url))
       );
@@ -23,6 +25,7 @@ export function CharacterRow({ character }: CharacterRowProps) {
       console.error('Error:', error);
     } finally {
       setLoading(false);
+      onLoadingChange(false);
     }
   }
 
