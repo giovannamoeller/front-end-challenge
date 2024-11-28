@@ -1,7 +1,7 @@
 'use client';
 
 import { Character } from "@/types/Character";
-import { CharacterRow } from "@/components/CharacterRow";
+import { CharactersTable } from "@/components/CharactersTable";
 import { fetchCharacters } from "@/services/api";
 import { useEffect, useState } from "react";
 
@@ -23,9 +23,7 @@ export default function Home() {
   return (
     <div className="">
       <h1 className="text-2xl font-bold text-gray-900 mb-8">Personagens dos filmes de Star Wars</h1>
-      {characters.map((character, index) => (
-        <CharacterRow key={index} character={character} />
-      ))}
+      <CharactersTable characters={characters} />
     </div>
   );
 }
