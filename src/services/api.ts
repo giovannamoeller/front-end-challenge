@@ -1,5 +1,4 @@
 import { APIResponse } from '@/types/APIResponse';
-import { Movie } from '@/types/Movie';
 
 const BASE_URL = 'https://swapi.dev/api';
 
