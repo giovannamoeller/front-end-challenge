@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${merriweather.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${merriweather.className} ${geistSans.variable} ${geistMono.variable} antialiased container mx-auto`}
       >
         {children}
       </body>
