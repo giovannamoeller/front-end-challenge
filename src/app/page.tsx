@@ -24,9 +24,7 @@ export default function Home() {
     <div className="">
       <h1 className="text-2xl font-bold text-gray-900 mb-8">Personagens dos filmes de Star Wars</h1>
       {characters.map((character, index) => (
-        <div key={index} className="flex items-center">
-          <CharacterRow character={character} />
-        </div>
+        <CharacterRow key={index} character={character} />
       ))}
     </div>
   );
