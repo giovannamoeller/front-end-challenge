@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Merriweather } from "next/font/google";
+import { Merriweather, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -15,10 +15,14 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const merriweather = Merriweather({
-  weight: ["300", "400", "700"],
+const inter = Inter({
   subsets: ["latin"],
 })
+
+/*const merriweather = Merriweather({
+  weight: ["300", "400", "700"],
+  subsets: ["latin"],
+})*/
 
 export const metadata: Metadata = {
   title: "Star Wars Characters",
@@ -33,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${merriweather.className} ${geistSans.variable} ${geistMono.variable} antialiased container mx-auto`}
+        className={`${inter.className}  antialiased container mx-auto`}
       >
         {children}
       </body>
