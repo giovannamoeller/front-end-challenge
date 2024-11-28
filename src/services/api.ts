@@ -1,4 +1,4 @@
-import { CharacterAPIResponse } from '@/types/APIResponse';
+import { CharacterAPIResponse } from '@/types/CharacterAPIResponse';
 
 const BASE_URL = 'https://swapi.dev/api';
 
