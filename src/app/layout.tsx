@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Merriweather, Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
+const inter = Inter({
+  subsets: ["latin"],
+})
+
+/*const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
@@ -15,11 +18,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-})
-
-/*const merriweather = Merriweather({
+const merriweather = Merriweather({
   weight: ["300", "400", "700"],
   subsets: ["latin"],
 })*/
