@@ -3,8 +3,5 @@ export const API_CONFIG = {
   endpoints: {
     people: '/people',
     movies: '/films'
-  },
-  defaultHeaders: {
-    'Content-Type': 'application/json'
   }
 };

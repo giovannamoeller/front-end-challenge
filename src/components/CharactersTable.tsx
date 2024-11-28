@@ -1,7 +1,7 @@
 import { Character } from "@/types/Character";
 import { CharacterRow } from "@/components/CharacterRow";
 import { CharactersTableHeader } from "./CharactersTableHeader";
-import { fetchCharacters } from "@/services/api";
+import { api } from "@/services/api";
 
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
@@ -36,7 +36,7 @@ export function CharactersTable({ initialCharacters, isLoading }: CharactersTabl
   async function loadMoreCharacters() {
     try {
       setLoading(true);
-      const response = await fetchCharacters(currentPage + 1);
+      const response = await api.fetchCharacters(currentPage + 1);
       setCharacters(prevCharacters => [...prevCharacters, ...response.results]);
       setCurrentPage(prev => prev + 1);
     } catch (error) {

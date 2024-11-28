@@ -1,31 +1,33 @@
 import { Movie } from '@/types/Movie';
 import { CharacterAPIResponse } from '@/types/CharacterAPIResponse';
 import { API_CONFIG } from '@/config/api.config';
+import { handleAPIResponse } from '../utils/api.utils';
 
-async function fetchCharacters(page: number = 1): Promise<CharacterAPIResponse> {
-  try {
-    const response = await fetch(`${API_CONFIG.baseURL}/people/?page=${page}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch characters');
-    }
-    return response.json();
-  } catch(error) {
-    console.error('Error fetching characters:', error);
-    throw error;
+class StarWarsAPIService {
+  private baseURL: string;
+
+  constructor() {
+    this.baseURL = API_CONFIG.baseURL;
   }
-}
 
-async function fetchMovie(url: string): Promise<Movie> {
-  try {
+  private async fetchAPI<T>(endpoint: string): Promise<T> {
+    const url = `${this.baseURL}${endpoint}`;
     const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Failed to fetch movie');
-    }
-    return response.json();
-  } catch(error) {
-    console.error('Error fetching movie:', error);
-    throw error;
+    return handleAPIResponse<T>(response);
+  }
+
+  async fetchCharacters(page: number = 1): Promise<CharacterAPIResponse> {
+    return this.fetchAPI<CharacterAPIResponse>(`${API_CONFIG.endpoints.people}/?page=${page}`);
+  }
+
+  async fetchMovieById(id: string): Promise<Movie> {
+    return this.fetchAPI<Movie>(`${API_CONFIG.endpoints.movies}/${id}`);
+  }
+
+  async fetchMovieByUrl(url: string): Promise<Movie> {
+    const response = await fetch(url);
+    return handleAPIResponse<Movie>(response);
   }
 }
 
-export { fetchCharacters, fetchMovie };
+export const api = new StarWarsAPIService();

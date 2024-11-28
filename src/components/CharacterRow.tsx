@@ -1,6 +1,6 @@
 import { Character } from "@/types/Character";
 import { Movie } from "@/types/Movie";
-import { fetchMovie } from "@/services/api";
+import { api } from "@/services/api";
 import { formatHeight } from "@/utils/formatHeight";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ export function CharacterRow({ character, onLoadingChange }: CharacterRowProps) 
       setLoading(true);
       onLoadingChange(true);
       const movies = await Promise.all(
-        character.films.map(url => fetchMovie(url))
+        character.films.map(url => api.fetchMovieByUrl(url))
       );
       setMovies(movies);
     } catch (error) {
