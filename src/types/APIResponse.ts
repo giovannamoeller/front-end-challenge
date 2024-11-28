@@ -1,6 +1,6 @@
 import { Character } from "./Character";
 
-export interface APIResponse {
+export interface CharacterAPIResponse {
   count: number;
   next: string;
   previous: string;

@@ -1,8 +1,8 @@
-import { APIResponse } from '@/types/APIResponse';
+import { CharacterAPIResponse } from '@/types/APIResponse';
 
 const BASE_URL = 'https://swapi.dev/api';
 
-async function fetchCharacters(page: number = 1): Promise<APIResponse> {
+async function fetchCharacters(page: number = 1): Promise<CharacterAPIResponse> {
   try {
     const response = await fetch(`${BASE_URL}/people/?page=${page}`);
     if (!response.ok) {
