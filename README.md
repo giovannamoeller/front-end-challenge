@@ -2,17 +2,17 @@
 
 Uma aplicação web que exibe informações sobre personagens de Star Wars utilizando a API SWAPI (Star Wars API).
 
-### Tecnologias Utilizadas
+### Tecnologias utilizadas
 
-Next.js 14
-Tailwind CSS
-React 19
-TypeScript
+- Next.js 14
+- Tailwind CSS
+- React 19
+- TypeScript
 
 ### Pré-requisitos
 
-Node.js 18.17 ou superior
-npm ou yarn
+- Node.js 18.17 ou superior
+- npm ou yarn
 
 ### Instalação
 
@@ -48,5 +48,5 @@ yarn dev
 
 2. Abra http://localhost:3000 no seu navegador.
 
-3. Ou, acesse a aplicação em produção: https://star-wars-characters-seven.vercel.app/
+3. Ou, acesse a aplicação em produção: https://star-wars-characters-seven.vercel.app/.
 
